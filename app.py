@@ -1,5 +1,4 @@
-from flask import Flask, request, render_template, url_for, redirect, session
-from db import db
+from flask import Flask, request, render_template, redirect
 import csv
 import os
 
@@ -7,10 +6,6 @@ app = Flask(__name__)
 
 APP_ROOT = os.path.dirname(os.path.abspath(__file__))
 
-
-@app.before_first_request
-def create_tables():
-	db.create_all()
 
 
 @app.route('/', methods=['GET'])
@@ -41,5 +36,4 @@ def submit_form():
         return 'Something went wrong!'
 
 if __name__ == "__main__":
-	db.init_app(app)
 	app.run(debug=True)
