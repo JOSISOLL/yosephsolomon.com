@@ -23,6 +23,9 @@ def write_to_csv(data):
         subject = data['subject']
         message = data['message']
         writer = csv.writer(csvfile)
+        print("==================================================================")
+        print("Email:\t{} \nSubject:\t{} \nMessage:\t{}".format(email, subject, message))
+        print("==================================================================")
         writer.writerow([email, subject, message])
 
 
